@@ -183,15 +183,16 @@
                 <div class="form-group">
                     <label>Tipo de serviço</label>
                     <select name="servico" id="servico">
-                        <option>Revisão Simples</option>
-                        <option>Revisão Básica</option>
-                        <option>Revisão Completa BTT (rígida)</option>
-                        <option>Revisão Completa BTT (suspensão total)</option>
-                        <option>Revisão Completa Estrada</option>
-                        <option>Revisão Completa E-Bike</option>
+                        <option>Revisão Nível 1</option>
+                        <option>Revisão Nível 2</option>
+                        <option>Revisão Nível 3 BTT (rígida)</option>
+                        <option>Revisão Nível 3 BTT (suspensão total)</option>
+                        <option>Revisão Nível 3 Estrada</option>
+                        <option>Revisão Nível 3 E-Bike</option>
                         <option>Suspensão</option>
                         <option>Outro serviço</option>
                     </select>
+                    <p id="servicoDesc" style="display:none;margin-top:8px;font-size:13px;color:#aaa;padding:10px 14px;background:#111;border-left:3px solid #0077cc;border-radius:4px;line-height:1.5"></p>
                 </div>
 
                 <div class="form-group">
@@ -279,6 +280,30 @@
 
 <script src="../js/script.js"></script>
 <script>
+    const SERVICO_DESCRICOES = {
+        'Revisão Nível 1': 'Lavar, lubrificar e afinar mudanças e travões.',
+        'Revisão Nível 2': 'Nível 1 + lubrificação de pedaleiro, caixa de direção e cubos de rodas.',
+        'Revisão Nível 3 BTT (rígida)': 'Nível 2 + desmontagem e remontagem de todos os componentes, cabos e espirais + sangramento de travões.',
+        'Revisão Nível 3 BTT (suspensão total)': 'Nível 2 + desmontagem e remontagem de todos os componentes, cabos e espirais + sangramento de travões.',
+        'Revisão Nível 3 Estrada': 'Nível 2 + desmontagem e remontagem de todos os componentes, cabos e espirais + sangramento de travões.',
+        'Revisão Nível 3 E-Bike': 'Nível 2 + desmontagem e remontagem de todos os componentes, cabos e espirais + sangramento de travões.',
+    };
+
+    function atualizarDescServico() {
+        const sel = document.getElementById('servico');
+        const desc = document.getElementById('servicoDesc');
+        const texto = SERVICO_DESCRICOES[sel.value];
+        if (texto) {
+            desc.textContent = texto;
+            desc.style.display = 'block';
+        } else {
+            desc.style.display = 'none';
+        }
+    }
+
+    document.getElementById('servico').addEventListener('change', atualizarDescServico);
+    atualizarDescServico();
+
     let diaEscolhido = null;  // objeto completo do dia escolhido
 
     async function carregarDias() {
