@@ -1,6 +1,6 @@
 const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     ? 'http://localhost:8000'
-    : 'https://atxcyclingstore.onrender.com';
+    : 'https://atxcyclingstore-cn3e.onrender.com';
 
 // Atualizar link de auth na navbar
 (function () {
@@ -34,7 +34,7 @@ const observer = new IntersectionObserver((entries) => {
 
     });
 
-}, {threshold: 0.01});
+}, { threshold: 0.01 });
 
 fadeElements.forEach(el => observer.observe(el));
 
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             floatingBtn.classList.add("show");
         }
 
-    }, {threshold: 0.2});
+    }, { threshold: 0.2 });
 
     triggers.forEach(el => observerBtn.observe(el));
 
