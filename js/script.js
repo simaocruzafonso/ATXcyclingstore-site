@@ -1,6 +1,6 @@
 const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     ? 'http://localhost:8000'
-    : 'https://atxcyclingstore-cn3e.onrender.com';
+    : 'https://atxcyclingstore.onrender.com';
 
 // Atualizar link de auth na navbar
 (function () {

@@ -46,7 +46,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "atxcyclingstore.onrender.com",
-    "atxcyclingstore-cn3e.onrender.com",
+
     "www.atxcyclingstore.pt",
     "atxcyclingstore.pt",
 ]
